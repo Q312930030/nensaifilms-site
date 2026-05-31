@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nensai Films · 年々歳々株式会社｜日本のリアル映像素材</title>
+<meta name="description" content="日本各地の駅・街並みで撮影した実写映像素材。広告・映像制作・YouTubeで使える商用ライセンス付き素材を、ロケーション別パックで販売。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0F0E0C;
+    --ink-2: #161412;
+    --ink-3: #1d1a17;
+    --paper: #E8E1D3;
+    --paper-dim: #B8AE9C;
+    --paper-mute: #7A6F5F;
+    --terracotta: #C97B63;
+    --highlight: #F4B860;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Shippori Mincho', 'Fraunces', serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* NAV */
+  nav.top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 56px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+    z-index: 10;
+  }
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--paper);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .logo .b { color: var(--paper-mute); margin-right: 14px; }
+  nav.top .right {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  nav.top .right a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  nav.top .right a:hover { color: var(--paper); }
+  .lang { display: flex; gap: 10px; color: var(--paper-mute); cursor: pointer; }
+  .lang span { transition: color 0.3s; }
+  .lang span.active { color: var(--terracotta); }
+  .lang span:not(.sep):hover { color: var(--paper); }
+
+  /* HERO */
+  .hero {
+    padding: 120px 56px 100px;
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadein 1s ease forwards 0.2s;
+  }
+  .hero-meta .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terracotta);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--paper);
+    margin-bottom: 28px;
+    max-width: 1100px;
+    opacity: 0;
+    animation: fadein 1.2s ease forwards 0.4s;
+  }
+  .hero h1 .accent {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--highlight);
+  }
+  .hero-en {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(22px, 2.6vw, 36px);
+    color: var(--paper-dim);
+    margin-bottom: 64px;
+    max-width: 720px;
+    line-height: 1.35;
+    opacity: 0;
+    animation: fadein 1.2s ease forwards 0.7s;
+  }
+  .hero-en em {
+    color: var(--terracotta);
+    font-style: normal;
+    font-weight: 400;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 32px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    width: fit-content;
+    opacity: 0;
+    animation: fadein 1.2s ease forwards 1s;
+  }
+  .hero-cta:hover {
+    background: var(--terracotta);
+    color: var(--paper);
+    gap: 24px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(232,225,211,0.013) 50%);
+    background-size: 100% 3px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .frame-id {
+    position: absolute;
+    right: 56px;
+    top: 120px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--paper-mute);
+    text-align: right;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadein 1s ease forwards 1.3s;
+  }
+  .frame-id .num { color: var(--highlight); }
+
+  /* STRIP */
+  .strip {
+    display: flex;
+    border-top: 1px solid rgba(232,225,211,0.1);
+    border-bottom: 1px solid rgba(232,225,211,0.1);
+    background: var(--ink-2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--paper-mute);
+  }
+  .strip > div {
+    flex: 1;
+    padding: 18px 24px;
+    text-align: center;
+    border-right: 1px solid rgba(232,225,211,0.08);
+  }
+  .strip > div:last-child { border-right: none; }
+  .strip strong { color: var(--paper); font-weight: 400; }
+
+  /* ABOUT */
+  .about {
+    padding: 120px 56px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .about-text {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.85;
+    color: var(--paper);
+  }
+  .about-text p { margin-bottom: 22px; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text .em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--highlight);
+    font-weight: 400;
+  }
+  .quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--paper-dim);
+    line-height: 1.6;
+    margin-top: 32px;
+    padding-left: 24px;
+    border-left: 2px solid var(--terracotta);
+  }
+
+  /* COLLECTIONS */
+  .collections {
+    padding: 120px 56px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+  }
+  .collections-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .collections-head h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--paper);
+    line-height: 1.1;
+    margin-top: 24px;
+  }
+  .collections-head h2 .en {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.5em;
+    color: var(--paper-mute);
+    margin-top: 8px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .card {
+    background: var(--ink-2);
+    border: 1px solid rgba(232,225,211,0.1);
+    padding: 36px 32px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(.2,.7,.3,1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    overflow: hidden;
+  }
+  .card:hover {
+    background: var(--ink-3);
+    border-color: var(--terracotta);
+    transform: translateY(-4px);
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed rgba(232,225,211,0.15);
+  }
+  .card-head .num { color: var(--highlight); }
+  .card-img {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #1f1d19 0%, #2a2620 100%);
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(232,225,211,0.06);
+  }
+  .card-img::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 30% 50%, rgba(244,184,96,0.06), transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(201,123,99,0.08), transparent 50%);
+  }
+  .card-img::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+  }
+  .card h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--paper);
+    margin-bottom: 6px;
+  }
+  .card .en {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--paper-mute);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .card .desc {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    color: var(--paper-dim);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(232,225,211,0.08);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .card-foot .price {
+    color: var(--highlight);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .card-foot .arr { color: var(--paper-mute); transition: color 0.3s; }
+  .card:hover .arr { color: var(--terracotta); }
+
+  /* PROCESS */
+  .process {
+    padding: 120px 56px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+  }
+  .process h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--paper);
+    margin-bottom: 64px;
+    margin-top: 24px;
+  }
+  .process h2 .en {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.5em;
+    color: var(--paper-mute);
+    margin-top: 8px;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 80px;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+  .step h4 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
+  .step p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    color: var(--paper-dim);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 140px 56px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+  }
+  .cta h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    color: var(--paper);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta h2 .accent {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--highlight);
+  }
+  .cta-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--paper-dim);
+    margin-bottom: 56px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 44px;
+    background: var(--terracotta);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .cta-btn:hover {
+    background: var(--highlight);
+    color: var(--ink);
+    gap: 24px;
+  }
+
+  /* HERO 认证声明 */
+  .hero-cert {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadein 1.2s ease forwards 1.2s;
+    flex-wrap: wrap;
+  }
+  .hero-cert .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border: 1px solid rgba(201,123,99,0.4);
+    color: var(--paper-dim);
+    border-radius: 999px;
+    background: rgba(201,123,99,0.05);
+  }
+  .hero-cert .pill .x {
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+
+  /* PROMISE */
+  .promise {
+    padding: 100px 56px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+    background: var(--ink-2);
+    position: relative;
+  }
+  .promise::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 56px; right: 56px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,123,99,0.3), transparent);
+  }
+  .promise .lead {
+    max-width: 720px;
+    margin-bottom: 72px;
+  }
+  .promise h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--paper);
+    line-height: 1.15;
+    margin-top: 24px;
+  }
+  .promise h2 .accent {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--highlight);
+  }
+  .promise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .promise-item {
+    position: relative;
+    padding-left: 32px;
+  }
+  .promise-item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--terracotta);
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .promise-item h4 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
+  .promise-item .en-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--paper-mute);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .promise-item p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    color: var(--paper-dim);
+    line-height: 1.75;
+  }
+
+  /* 卡片徽章 */
+  .card-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 9px;
+    background: rgba(201,123,99,0.15);
+    border: 1px solid rgba(201,123,99,0.4);
+    color: var(--terracotta);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  .card-badge .dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--terracotta);
+  }
+
+  /* Footer 上方的小字 */
+  .footer-tag {
+    text-align: center;
+    padding: 48px 56px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--paper-mute);
+    letter-spacing: 0.02em;
+  }
+  .footer-tag em {
+    color: var(--terracotta);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* USAGE NOTICE 商用注意 */
+  .notice {
+    padding: 80px 56px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    background: var(--ink);
+  }
+  .notice-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .notice-card {
+    padding: 32px;
+    border: 1px solid rgba(232,225,211,0.12);
+    background: rgba(232,225,211,0.02);
+    position: relative;
+  }
+  .notice-card.allow {
+    border-left: 3px solid var(--highlight);
+  }
+  .notice-card.caution {
+    border-left: 3px solid var(--terracotta);
+  }
+  .notice-card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .notice-card.allow .tag { color: var(--highlight); }
+  .notice-card.caution .tag { color: var(--terracotta); }
+  .notice-card h4 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--paper);
+    margin-bottom: 14px;
+    line-height: 1.35;
+  }
+  .notice-card p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    color: var(--paper-dim);
+    line-height: 1.75;
+  }
+
+  /* CLIENTS 客户区 */
+  .clients {
+    padding: 120px 56px;
+    border-bottom: 1px solid rgba(232,225,211,0.08);
+    background: var(--ink-2);
+  }
+  .clients-head {
+    margin-bottom: 64px;
+  }
+  .clients-head h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--paper);
+    margin-top: 24px;
+    line-height: 1.15;
+    max-width: 800px;
+  }
+  .clients-head h2 .accent {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--highlight);
+  }
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(232,225,211,0.08);
+    border: 1px solid rgba(232,225,211,0.08);
+  }
+  .client-cell {
+    padding: 36px 32px;
+    background: var(--ink-2);
+    transition: background 0.3s;
+  }
+  .client-cell:hover {
+    background: var(--ink-3);
+  }
+  .client-cell .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36px;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .client-cell h4 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--paper);
+    margin-bottom: 6px;
+  }
+  .client-cell .en-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--paper-mute);
+    margin-bottom: 16px;
+    display: block;
+    letter-spacing: 0.02em;
+  }
+  .client-cell p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    color: var(--paper-dim);
+    line-height: 1.75;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 64px 56px 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+  }
+  .footer-brand {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    color: var(--paper);
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.6;
+  }
+  .footer-brand .small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    margin-top: 8px;
+    display: block;
+    text-transform: uppercase;
+  }
+  footer h5 {
+    color: var(--paper);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 10px; line-height: 1.6; }
+  footer a {
+    color: var(--paper-mute);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  footer a:hover { color: var(--paper); }
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(232,225,211,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 900px) {
+    nav.top { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
+    nav.top .right { gap: 18px; }
+    .hero, .about, .collections, .process, .cta, footer { padding-left: 24px; padding-right: 24px; }
+    .hero { padding-top: 80px; padding-bottom: 60px; }
+    .about, .grid, .steps, .footer-grid, .promise-grid, .notice, .notice-body, .clients-grid { grid-template-columns: 1fr; gap: 48px; }
+    .promise { padding-left: 24px; padding-right: 24px; }
+    .footer-tag { padding-left: 24px; padding-right: 24px; }
+    .notice, .clients { padding-left: 24px; padding-right: 24px; padding-top: 60px; padding-bottom: 60px; }
+    .clients-grid { gap: 0; }
+    .client-cell { border-bottom: 1px solid rgba(232,225,211,0.08); }
+    .frame-id { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="logo"><span class="b">NF</span> NENSAI · FILMS</div>
+  <div class="right">
+    <a href="#about">About</a>
+    <a href="#collections">Collections</a>
+    <a href="#contact">Contact</a>
+    <div class="lang">
+      <span class="active" data-lang="ja">JA</span>
+      <span class="sep">·</span>
+      <span data-lang="en">EN</span>
+      <span class="sep">·</span>
+      <span data-lang="zh">中</span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="frame-id">
+    <div>FRAME 001/052</div>
+    <div><span class="num">35MM</span> · 24FPS</div>
+    <div>TOKYO · JP</div>
+  </div>
+  <div class="hero-meta">
+    <span class="dot"></span>
+    <span data-i18n="hero.meta">NOW SHOOTING · 東京 2026</span>
+  </div>
+  <h1 data-i18n="hero.title">年々歳々、<br>街は<span class="accent">変わり続ける。</span></h1>
+  <p class="hero-en" data-i18n="hero.sub">Real Japan, frame by frame.<br>Footage shot on the ground — <em>not the postcard version.</em></p>
+  <div class="hero-cert">
+    <span class="pill"><span class="x">✕</span> <span data-i18n="cert.ai">NO AI</span></span>
+    <span class="pill"><span class="x">✕</span> <span data-i18n="cert.cg">NO CG</span></span>
+    <span class="pill"><span class="x">✕</span> <span data-i18n="cert.comp">NO COMPOSITE</span></span>
+    <span style="opacity: 0.7;" data-i18n="cert.tag">— Every frame shot on location.</span>
+  </div>
+  <a href="https://payhip.com/nensaifilms" class="hero-cta">
+    <span data-i18n="hero.cta">Browse Collections</span>
+    <span>→</span>
+  </a>
+</section>
+
+<div class="strip">
+  <div><strong>4K · ProRes 422</strong></div>
+  <div><strong data-i18n="strip.license">商用ライセンス</strong> · One-time</div>
+  <div>50+ <strong data-i18n="strip.locations">Locations</strong></div>
+  <div data-i18n="strip.based">Based in <strong>Tokyo</strong></div>
+</div>
+
+<section class="about" id="about">
+  <div><div class="section-label" data-i18n="about.label">About · 会社概要</div></div>
+  <div class="about-text">
+    <p data-i18n="about.p1">
+      Nensai Films は、東京を拠点に活動する実写映像スタジオ。日本に住み、日本の街を歩き、日本の風景を<span class="em">「いま、そのまま」</span>記録しています。
+    </p>
+    <p data-i18n="about.p2">
+      街は変わり続けます。10年後、いま撮影しているこの場所は、もう存在しないかもしれない——だからこそ私たちは、観光ガイドに載らない普通の街並みを、ひとつのフレームとして<span class="em">「未来への記録」</span>に残します。
+    </p>
+    <p data-i18n="about.p3">
+      すべての素材は、現地で実際に撮影されたものです。AI 生成、CG 合成、ストック素材の再編集——一切ありません。
+    </p>
+    <div class="quote">
+      年年歳歳花相似たり、歳歳年年人同じからず。<br>
+      <span style="font-size: 13px; opacity: 0.7;">— 劉希夷『代悲白頭翁』</span>
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="lead">
+    <div class="section-label" data-i18n="promise.label">Our Promise · 私たちの約束</div>
+    <h2 data-i18n="promise.title">
+      すべては、<span class="accent">この目で見た風景。</span>
+    </h2>
+  </div>
+  <div class="promise-grid">
+    <div class="promise-item">
+      <h4 data-i18n="promise.1.h">100% 実地撮影</h4>
+      <span class="en-sub" data-i18n="promise.1.en">Shot on location, by hand.</span>
+      <p data-i18n="promise.1.p">すべての映像は、日本に住むスタッフが現地で実際に撮影したもの。スタジオセットも、CGも、AI生成も使用していません。</p>
+    </div>
+    <div class="promise-item">
+      <h4 data-i18n="promise.2.h">AI なし · CG なし · 合成なし</h4>
+      <span class="en-sub" data-i18n="promise.2.en">No AI. No CG. No composite.</span>
+      <p data-i18n="promise.2.p">画像生成 AI による偽の風景、CG合成、ストック素材の流用——一切ありません。カメラが捉えた、そのままの瞬間です。</p>
+    </div>
+    <div class="promise-item">
+      <h4 data-i18n="promise.3.h">未来への記録として</h4>
+      <span class="en-sub" data-i18n="promise.3.en">Captured today. Archived forever.</span>
+      <p data-i18n="promise.3.p">街は変わり続けます。今日撮影されたこの風景は、10年後の貴重な記録になる——そういう仕事だと、私たちは思っています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="collections" id="collections">
+  <div class="collections-head">
+    <div>
+      <div class="section-label" data-i18n="col.label">Collections · 地点別パック</div>
+      <h2 data-i18n="col.title">
+        場所ごとに、撮りためた風景。
+        <span class="en">Footage, curated by location.</span>
+      </h2>
+    </div>
+  </div>
+  <div class="grid">
+    <a class="card" href="https://payhip.com/nensaifilms">
+      <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
+      <div class="card-head"><span>PACK 01</span><span><span class="num">●</span> AVAILABLE</span></div>
+      <div class="card-img" data-label="IKEBUKURO · 池袋"></div>
+      <h3>池袋駅</h3>
+      <span class="en">Ikebukuro Station</span>
+      <p class="desc">東口ロータリー、サンシャイン動線、夜のネオン街——50カット。</p>
+      <div class="card-foot"><span class="price">¥30,000—</span><span class="arr">VIEW PACK →</span></div>
+    </a>
+    <a class="card" href="https://payhip.com/nensaifilms">
+      <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
+      <div class="card-head"><span>PACK 02</span><span><span class="num">●</span> AVAILABLE</span></div>
+      <div class="card-img" data-label="SHINJUKU · 新宿"></div>
+      <h3>新宿駅</h3>
+      <span class="en">Shinjuku Station</span>
+      <p class="desc">西口・東口・歌舞伎町、世界最多の乗降客が行き交う風景。</p>
+      <div class="card-foot"><span class="price">¥30,000—</span><span class="arr">VIEW PACK →</span></div>
+    </a>
+    <a class="card" href="https://payhip.com/nensaifilms">
+      <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
+      <div class="card-head"><span>PACK 03</span><span><span class="num">●</span> AVAILABLE</span></div>
+      <div class="card-img" data-label="KAMEARI · 亀有"></div>
+      <h3>亀有駅</h3>
+      <span class="en">Kameari Station</span>
+      <p class="desc">下町の静けさ、アーケード、生活感のある路地——50カット。</p>
+      <div class="card-foot"><span class="price">¥30,000—</span><span class="arr">VIEW PACK →</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="clients">
+  <div class="clients-head">
+    <div class="section-label" data-i18n="clients.label">Who Uses Our Footage · 主なご利用先</div>
+    <h2 data-i18n="clients.title">
+      これまでに、<span class="accent">こんな方々に。</span>
+    </h2>
+  </div>
+  <div class="clients-grid">
+    <div class="client-cell">
+      <span class="num">01</span>
+      <h4 data-i18n="cli.1.h">不動産仲介会社</h4>
+      <span class="en-sub" data-i18n="cli.1.en">Real Estate Agencies</span>
+      <p data-i18n="cli.1.p">物件紹介動画、エリア案内、街の雰囲気を伝えるコンテンツに。「この物件、こんな街にあります」を映像で。</p>
+    </div>
+    <div class="client-cell">
+      <span class="num">02</span>
+      <h4 data-i18n="cli.2.h">映像制作・広告代理店</h4>
+      <span class="en-sub" data-i18n="cli.2.en">Production Houses & Agencies</span>
+      <p data-i18n="cli.2.p">CM、PV、ブランドコンテンツの背景素材として。本物の街並みが必要だが現地撮影の予算がない案件に。</p>
+    </div>
+    <div class="client-cell">
+      <span class="num">03</span>
+      <h4 data-i18n="cli.3.h">YouTube・SNS クリエイター</h4>
+      <span class="en-sub" data-i18n="cli.3.en">YouTube & Social Creators</span>
+      <p data-i18n="cli.3.p">日本紹介動画、Vlog、教育系コンテンツに。ストック素材では出せない「等身大の日本」を演出。</p>
+    </div>
+    <div class="client-cell">
+      <span class="num">04</span>
+      <h4 data-i18n="cli.4.h">ドキュメンタリー・映画</h4>
+      <span class="en-sub" data-i18n="cli.4.en">Documentary & Film</span>
+      <p data-i18n="cli.4.p">日本を舞台にした作品、エスタブリッシング・ショットに。観光地ではない「リアルな日本」が必要な場面で。</p>
+    </div>
+    <div class="client-cell">
+      <span class="num">05</span>
+      <h4 data-i18n="cli.5.h">留学・旅行関連事業者</h4>
+      <span class="en-sub" data-i18n="cli.5.en">Travel & Education Industry</span>
+      <p data-i18n="cli.5.p">学校紹介資料、旅行プロモーション、留学ガイドに。日本での暮らしを具体的にイメージさせる映像として。</p>
+    </div>
+    <div class="client-cell">
+      <span class="num">06</span>
+      <h4 data-i18n="cli.6.h">海外メディア・出版社</h4>
+      <span class="en-sub" data-i18n="cli.6.en">Overseas Media & Publishers</span>
+      <p data-i18n="cli.6.p">日本特集、ライフスタイル記事、テレビ番組の映像素材として。海外から見た「本物の日本」を求める場面に。</p>
+    </div>
+  </div>
+</section>
+
+<section class="notice">
+  <div>
+    <div class="section-label" data-i18n="notice.label">Usage · ご利用にあたって</div>
+  </div>
+  <div class="notice-body">
+    <div class="notice-card allow">
+      <div class="tag" data-i18n="notice.allow.tag">✓ Commercial Use OK</div>
+      <h4 data-i18n="notice.allow.h">商用利用、可能です。</h4>
+      <p data-i18n="notice.allow.p">広告、CM、YouTube、SNS、不動産紹介動画、テレビ番組——商用プロジェクトでのご利用を歓迎します。複数プロジェクトでの使用も可能です。</p>
+    </div>
+    <div class="notice-card caution">
+      <div class="tag" data-i18n="notice.caution.tag">! Important Notice</div>
+      <h4 data-i18n="notice.caution.h">公開前の、ひとつのお願い。</h4>
+      <p data-i18n="notice.caution.p">映像には街を歩く方々が写り込んでいる場合があります。一般公開される媒体でご利用される際は、肖像権・プライバシー保護のため、必要に応じてモザイク等の処理をお願いいたします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-label" data-i18n="process.label">Process · ご利用の流れ</div>
+  <h2 data-i18n="process.title">
+    シンプルな、3つのステップ。
+    <span class="en">A simple, three-step process.</span>
+  </h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4 data-i18n="step1.h">パックを選ぶ</h4>
+      <p data-i18n="step1.p">地点別パックから、必要なロケーションをお選びください。プレビュー映像で内容をご確認いただけます。</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4 data-i18n="step2.h">決済</h4>
+      <p data-i18n="step2.p">クレジットカードで安全に決済。Stripe による業界標準のセキュリティで処理されます。</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4 data-i18n="step3.h">即時ダウンロード</h4>
+      <p data-i18n="step3.p">決済完了後、すぐにダウンロードリンクをメールでお送りします。商用利用ライセンス付き。</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 data-i18n="cta.title">あなたの作品に、<br><span class="accent">本物の日本を。</span></h2>
+  <p class="cta-sub" data-i18n="cta.sub">Real footage. Real Japan. Ready to use.</p>
+  <a href="https://payhip.com/nensaifilms" class="cta-btn" data-i18n="cta.btn">Browse All Collections →</a>
+</section>
+
+<div class="footer-tag" data-i18n="foot.tag">
+  Filmed in Japan. <em>By people who live here.</em> For the record.
+</div>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        Nensai Films<br>
+        <span class="small">年々歳々株式会社</span>
+      </div>
+    </div>
+    <div>
+      <h5 data-i18n="foot.shop">Shop</h5>
+      <ul>
+        <li><a href="https://payhip.com/nensaifilms">Collections</a></li>
+        <li><a href="https://payhip.com/nensaifilms">License</a></li>
+        <li><a href="https://payhip.com/nensaifilms">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.studio">Studio</h5>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:info.nennensaisai@gmail.com">Custom Shoots</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.contact">Contact</h5>
+      <ul>
+        <li style="text-transform: lowercase;"><a href="mailto:info.nennensaisai@gmail.com">info.nennensaisai@gmail.com</a></li>
+        <li style="text-transform: none; letter-spacing: 0;">東京都中野区弥生町</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 NENSAI FILMS · ALL RIGHTS RESERVED</div>
+    <div>NENSAIFILMS.COM</div>
+  </div>
+</footer>
+
+<script>
+  // 简易三语切换
+  const i18n = {
+    ja: {
+      'hero.meta': 'NOW SHOOTING · 東京 2026',
+      'hero.title': '年々歳々、<br>街は<span class="accent">変わり続ける。</span>',
+      'hero.sub': 'Real Japan, frame by frame.<br>Footage shot on the ground — <em>not the postcard version.</em>',
+      'hero.cta': 'Browse Collections',
+      'cert.ai': 'NO AI',
+      'cert.cg': 'NO CG',
+      'cert.comp': 'NO COMPOSITE',
+      'cert.tag': '— すべての映像は、現地で実際に撮影しています。',
+      'strip.license': '商用ライセンス',
+      'strip.locations': 'Locations',
+      'strip.based': 'Based in <strong>Tokyo</strong>',
+      'about.label': 'About · 会社概要',
+      'about.p1': 'Nensai Films は、東京を拠点に活動する実写映像スタジオ。日本に住み、日本の街を歩き、日本の風景を<span class="em">「いま、そのまま」</span>記録しています。',
+      'about.p2': '街は変わり続けます。10年後、いま撮影しているこの場所は、もう存在しないかもしれない——だからこそ私たちは、観光ガイドに載らない普通の街並みを、ひとつのフレームとして<span class="em">「未来への記録」</span>に残します。',
+      'about.p3': 'すべての素材は、現地で実際に撮影されたものです。AI 生成、CG 合成、ストック素材の再編集——一切ありません。',
+      'promise.label': 'Our Promise · 私たちの約束',
+      'promise.title': 'すべては、<span class="accent">この目で見た風景。</span>',
+      'promise.1.h': '100% 実地撮影', 'promise.1.en': 'Shot on location, by hand.', 'promise.1.p': 'すべての映像は、日本に住むスタッフが現地で実際に撮影したもの。スタジオセットも、CGも、AI生成も使用していません。',
+      'promise.2.h': 'AI なし · CG なし · 合成なし', 'promise.2.en': 'No AI. No CG. No composite.', 'promise.2.p': '画像生成 AI による偽の風景、CG合成、ストック素材の流用——一切ありません。カメラが捉えた、そのままの瞬間です。',
+      'promise.3.h': '未来への記録として', 'promise.3.en': 'Captured today. Archived forever.', 'promise.3.p': '街は変わり続けます。今日撮影されたこの風景は、10年後の貴重な記録になる——そういう仕事だと、私たちは思っています。',
+      'col.label': 'Collections · 地点別パック',
+      'col.title': '場所ごとに、撮りためた風景。<span class="en">Footage, curated by location.</span>',
+      'process.label': 'Process · ご利用の流れ',
+      'process.title': 'シンプルな、3つのステップ。<span class="en">A simple, three-step process.</span>',
+      'step1.h': 'パックを選ぶ', 'step1.p': '地点別パックから、必要なロケーションをお選びください。プレビュー映像で内容をご確認いただけます。',
+      'step2.h': '決済', 'step2.p': 'クレジットカードで安全に決済。Stripe による業界標準のセキュリティで処理されます。',
+      'step3.h': '即時ダウンロード', 'step3.p': '決済完了後、すぐにダウンロードリンクをメールでお送りします。商用利用ライセンス付き。',
+      'cta.title': 'あなたの作品に、<br><span class="accent">本物の日本を。</span>',
+      'cta.sub': 'Real footage. Real Japan. Ready to use.',
+      'cta.btn': 'Browse All Collections →',
+      'clients.label': 'Who Uses Our Footage · 主なご利用先',
+      'clients.title': 'これまでに、<span class="accent">こんな方々に。</span>',
+      'cli.1.h': '不動産仲介会社', 'cli.1.en': 'Real Estate Agencies', 'cli.1.p': '物件紹介動画、エリア案内、街の雰囲気を伝えるコンテンツに。「この物件、こんな街にあります」を映像で。',
+      'cli.2.h': '映像制作・広告代理店', 'cli.2.en': 'Production Houses & Agencies', 'cli.2.p': 'CM、PV、ブランドコンテンツの背景素材として。本物の街並みが必要だが現地撮影の予算がない案件に。',
+      'cli.3.h': 'YouTube・SNS クリエイター', 'cli.3.en': 'YouTube & Social Creators', 'cli.3.p': '日本紹介動画、Vlog、教育系コンテンツに。ストック素材では出せない「等身大の日本」を演出。',
+      'cli.4.h': 'ドキュメンタリー・映画', 'cli.4.en': 'Documentary & Film', 'cli.4.p': '日本を舞台にした作品、エスタブリッシング・ショットに。観光地ではない「リアルな日本」が必要な場面で。',
+      'cli.5.h': '留学・旅行関連事業者', 'cli.5.en': 'Travel & Education Industry', 'cli.5.p': '学校紹介資料、旅行プロモーション、留学ガイドに。日本での暮らしを具体的にイメージさせる映像として。',
+      'cli.6.h': '海外メディア・出版社', 'cli.6.en': 'Overseas Media & Publishers', 'cli.6.p': '日本特集、ライフスタイル記事、テレビ番組の映像素材として。海外から見た「本物の日本」を求める場面に。',
+      'notice.label': 'Usage · ご利用にあたって',
+      'notice.allow.tag': '✓ Commercial Use OK',
+      'notice.allow.h': '商用利用、可能です。',
+      'notice.allow.p': '広告、CM、YouTube、SNS、不動産紹介動画、テレビ番組——商用プロジェクトでのご利用を歓迎します。複数プロジェクトでの使用も可能です。',
+      'notice.caution.tag': '! Important Notice',
+      'notice.caution.h': '公開前の、ひとつのお願い。',
+      'notice.caution.p': '映像には街を歩く方々が写り込んでいる場合があります。一般公開される媒体でご利用される際は、肖像権・プライバシー保護のため、必要に応じてモザイク等の処理をお願いいたします。',
+      'foot.tag': '日本で撮影。<em>日本に住む人間が、自分の足で。</em>記録として。',
+      'foot.shop': 'Shop', 'foot.studio': 'Studio', 'foot.contact': 'Contact'
+    },
+    en: {
+      'hero.meta': 'NOW SHOOTING · TOKYO 2026',
+      'hero.title': 'Year by year,<br>the city <span class="accent">keeps changing.</span>',
+      'hero.sub': 'Real Japan, frame by frame.<br>Footage shot on the ground — <em>not the postcard version.</em>',
+      'hero.cta': 'Browse Collections',
+      'cert.ai': 'NO AI',
+      'cert.cg': 'NO CG',
+      'cert.comp': 'NO COMPOSITE',
+      'cert.tag': '— Every frame, shot on location.',
+      'strip.license': 'Commercial License',
+      'strip.locations': 'Locations',
+      'strip.based': 'Based in <strong>Tokyo</strong>',
+      'about.label': 'About · The Studio',
+      'about.p1': 'Nensai Films is a Tokyo-based footage studio. We live in Japan. We walk these streets. We record them <span class="em">as they are, right now.</span>',
+      'about.p2': 'Cities don\u2019t stand still. The place we filmed today may not exist in ten years. So we capture the ordinary streets — the ones tourist guides ignore — and turn each frame into <span class="em">a record for the future.</span>',
+      'about.p3': 'Every clip was filmed on location, by hand. No AI-generated scenery. No CG composites. No stock footage stitched together.',
+      'promise.label': 'Our Promise · Three Things We Never Do',
+      'promise.title': 'Everything you see is <span class="accent">what we saw.</span>',
+      'promise.1.h': '100% Shot On Location', 'promise.1.en': 'On the ground. By hand. In Japan.', 'promise.1.p': 'Every clip was filmed in-person by our team living in Japan. No studio sets. No virtual production. No AI generation.',
+      'promise.2.h': 'No AI · No CG · No Composite', 'promise.2.en': 'What you see is what was there.', 'promise.2.p': 'No AI-generated landscapes. No CG enhancements. No stock footage repurposed. Just what the camera saw, in that moment.',
+      'promise.3.h': 'An Archive Of The Present', 'promise.3.en': 'Captured today. Archived forever.', 'promise.3.p': 'Cities change. The streets we film today may be gone in a decade. Each frame is, in a way, an archive entry for the future.',
+      'col.label': 'Collections · By Location',
+      'col.title': 'Footage, curated by location. <span class="en">場所ごとに、撮りためた風景。</span>',
+      'process.label': 'Process · How It Works',
+      'process.title': 'A simple, three-step process. <span class="en">シンプルな、3つのステップ。</span>',
+      'step1.h': 'Pick a Pack', 'step1.p': 'Browse location-based footage packs. Preview clips available before purchase.',
+      'step2.h': 'Checkout', 'step2.p': 'Secure payment via Stripe. Industry-standard encryption.',
+      'step3.h': 'Instant Download', 'step3.p': 'Download link sent to your email immediately after payment. Commercial license included.',
+      'cta.title': 'Real Japan, <br><span class="accent">in your next project.</span>',
+      'cta.sub': 'Real footage. Real Japan. Ready to use.',
+      'cta.btn': 'Browse All Collections →',
+      'clients.label': 'Who Uses Our Footage · Our Buyers',
+      'clients.title': 'Used by, <span class="accent">among others —</span>',
+      'cli.1.h': 'Real Estate Agencies', 'cli.1.en': '不動産仲介会社', 'cli.1.p': 'For listing videos, area introductions, and neighborhood ambience reels. Show clients not just the property, but the street it sits on.',
+      'cli.2.h': 'Production Houses & Agencies', 'cli.2.en': '映像制作・広告代理店', 'cli.2.p': 'Commercial, music video, and brand content background footage. For projects that need real Japan but can\u2019t afford on-location shoots.',
+      'cli.3.h': 'YouTube & Social Creators', 'cli.3.en': 'YouTube・SNS クリエイター', 'cli.3.p': 'Japan introduction videos, vlogs, and educational content. Footage with the texture of real life — not the recycled stock aesthetic.',
+      'cli.4.h': 'Documentary & Film', 'cli.4.en': 'ドキュメンタリー・映画', 'cli.4.p': 'Films set in Japan, establishing shots, and B-roll. Real streets, not picture-postcard locations.',
+      'cli.5.h': 'Travel & Education Industry', 'cli.5.en': '留学・旅行関連事業者', 'cli.5.p': 'School promo materials, travel campaigns, study-abroad guides. Show prospective students what life in Japan actually looks like.',
+      'cli.6.h': 'Overseas Media & Publishers', 'cli.6.en': '海外メディア・出版社', 'cli.6.p': 'Japan features, lifestyle pieces, TV programs. For when international audiences need the real Japan, not the cliché.',
+      'notice.label': 'Usage · A Note On Use',
+      'notice.allow.tag': '✓ Commercial Use OK',
+      'notice.allow.h': 'Yes, you can use this commercially.',
+      'notice.allow.p': 'Advertising, commercials, YouTube, social, real-estate videos, TV programs — commercial use is welcome. Use across multiple projects is included.',
+      'notice.caution.tag': '! Important Notice',
+      'notice.caution.h': 'One small ask, before you publish.',
+      'notice.caution.p': 'Some clips may include passersby on the street. When using this footage in public-facing media, please apply appropriate processing (e.g. blurring of faces) where needed to protect privacy and likeness rights.',
+      'foot.tag': 'Filmed in Japan. <em>By people who live here.</em> For the record.',
+      'foot.shop': 'Shop', 'foot.studio': 'Studio', 'foot.contact': 'Contact'
+    },
+    zh: {
+      'hero.meta': '正在拍摄 · 东京 2026',
+      'hero.title': '年年岁岁，<br>街景<span class="accent">不断流转。</span>',
+      'hero.sub': '真实日本，每一帧。<br>实地拍摄 — <em>不是观光手册上的样子。</em>',
+      'hero.cta': '浏览全部素材',
+      'cert.ai': '无 AI',
+      'cert.cg': '无 CG',
+      'cert.comp': '无合成',
+      'cert.tag': '— 每一帧，都是实地拍摄。',
+      'strip.license': '商用授权',
+      'strip.locations': '个地点',
+      'strip.based': '总部 <strong>东京</strong>',
+      'about.label': '关于我们',
+      'about.p1': 'Nensai Films 是一家位于东京的实拍影像工作室。我们生活在日本，走在日本的街上，把日本的街景<span class="em">「就此刻、就这样」</span>记录下来。',
+      'about.p2': '街道一直在变。十年后，我们今天拍下的这个地方，可能就不存在了——所以我们记录那些观光指南里没有的、最普通的街景，把每一帧都当作<span class="em">「写给未来的档案」</span>。',
+      'about.p3': '所有素材都是在现场实地拍摄的。没有 AI 生成、没有 CG 合成、没有库存素材二次剪辑——一帧都没有。',
+      'promise.label': '我们的承诺 · 三件不会做的事',
+      'promise.title': '镜头里的一切，<span class="accent">都是我们亲眼所见。</span>',
+      'promise.1.h': '100% 实地拍摄', 'promise.1.en': 'Shot on location, by hand.', 'promise.1.p': '所有素材都由我们在日本的团队亲自到现场拍摄。没有摄影棚搭景，没有虚拟拍摄，没有 AI 生成。',
+      'promise.2.h': '无 AI · 无 CG · 无合成', 'promise.2.en': 'No AI. No CG. No composite.', 'promise.2.p': '没有 AI 生成的假街景，没有 CG 增强效果，没有库存素材的二次剪辑——只有镜头当下捕捉到的真实瞬间。',
+      'promise.3.h': '为未来留下记录', 'promise.3.en': 'Captured today. Archived forever.', 'promise.3.p': '街道每天都在变。今天拍下的这个画面，十年后可能就是珍贵的资料。我们做的，是一份给未来的记录。',
+      'col.label': '素材合集 · 按地点划分',
+      'col.title': '按地点拍摄、整理的真实日本。<span class="en">Footage, curated by location.</span>',
+      'process.label': '使用流程',
+      'process.title': '简单三步，立即可用。<span class="en">A simple, three-step process.</span>',
+      'step1.h': '选择素材包', 'step1.p': '按地点浏览素材合集。每个合集均提供预览视频。',
+      'step2.h': '完成付款', 'step2.p': 'Stripe 安全收款，支持主流信用卡。',
+      'step3.h': '即时下载', 'step3.p': '付款后立即收到下载链接邮件。含商用授权。',
+      'cta.title': '把<span class="accent">真实日本，</span><br>放进你的下一个作品。',
+      'cta.sub': 'Real footage. Real Japan. Ready to use.',
+      'cta.btn': '浏览全部素材 →',
+      'clients.label': '主要客户群',
+      'clients.title': '我们的素材，<span class="accent">被这些人使用着。</span>',
+      'cli.1.h': '不动产中介', 'cli.1.en': 'Real Estate Agencies', 'cli.1.p': '房源介绍视频、片区导览、街区氛围片。让客户不只看到房子，更看到房子所在的那条街。',
+      'cli.2.h': '影视广告制作公司', 'cli.2.en': 'Production Houses & Agencies', 'cli.2.p': '广告、MV、品牌内容的背景素材。适合需要真实日本质感、但又没有日本实地拍摄预算的项目。',
+      'cli.3.h': 'YouTube · 社媒创作者', 'cli.3.en': 'YouTube & Social Creators', 'cli.3.p': '日本介绍类视频、Vlog、教育内容。库存素材呈现不出来的「日常感日本」，在这里能找到。',
+      'cli.4.h': '纪录片 · 影视团队', 'cli.4.en': 'Documentary & Film', 'cli.4.p': '以日本为背景的影视作品、定场镜头、B-Roll。需要的不是观光地，是真实街区的项目。',
+      'cli.5.h': '留学 · 旅游业者', 'cli.5.en': 'Travel & Education Industry', 'cli.5.p': '学校招生材料、旅游推广、留学指南。让目标用户具体看到「在日本生活」的真实样貌。',
+      'cli.6.h': '海外媒体 · 出版社', 'cli.6.en': 'Overseas Media & Publishers', 'cli.6.p': '日本专题、生活方式报道、电视节目素材。从海外视角看「真实的日本」时使用。',
+      'notice.label': '使用说明',
+      'notice.allow.tag': '✓ 可商用',
+      'notice.allow.h': '可以用于商业项目。',
+      'notice.allow.p': '广告、CM、YouTube、社交媒体、不动产介绍视频、电视节目——欢迎商业用途，也可以用于多个项目。',
+      'notice.caution.tag': '! 公开发表前的提示',
+      'notice.caution.h': '公开发表前，请处理一下。',
+      'notice.caution.p': '素材中可能包含街上行人的画面。在用于公开发布的媒介时，请根据需要对路人面部等做马赛克处理，以保护其肖像权和隐私权。',
+      'foot.tag': '日本拍摄。<em>住在这里的人，亲自记录。</em>留给时间。',
+      'foot.shop': '商店', 'foot.studio': '工作室', 'foot.contact': '联系'
+    }
+  };
+  function setLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.dataset.i18n;
+      if (i18n[lang][k]) el.innerHTML = i18n[lang][k];
+    });
+    document.querySelectorAll('.lang span[data-lang]').forEach(s => {
+      s.classList.toggle('active', s.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('.lang span[data-lang]').forEach(s => {
+    s.addEventListener('click', () => setLang(s.dataset.lang));
+  });
+</script>
+
+</body>
+</html>
