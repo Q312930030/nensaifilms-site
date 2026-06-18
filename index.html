@@ -336,10 +336,27 @@
   .card-img {
     aspect-ratio: 4/3;
     background: linear-gradient(135deg, #1f1d19 0%, #2a2620 100%);
+    background-size: cover;
+    background-position: center;
     margin-bottom: 28px;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(232,225,211,0.06);
+  }
+  .card-img-ikebukuro {
+    background-image: linear-gradient(to bottom, rgba(15,14,12,0.15), rgba(15,14,12,0.5)), url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jq6irhsa1o6mgkb2291t651g541i.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .card-img-kameari {
+    background-image: linear-gradient(to bottom, rgba(15,14,12,0.15), rgba(15,14,12,0.5)), url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jrd66tabt6k1v91f9ddsip6d15.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .card-img-chinatown {
+    background-image: linear-gradient(to bottom, rgba(15,14,12,0.15), rgba(15,14,12,0.5)), url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jrd98q4k97g1ag71aet32cs9h1a.png');
+    background-size: cover;
+    background-position: center;
   }
   .card-img::before {
     content: '';
@@ -953,29 +970,29 @@
     <a class="card" href="https://payhip.com/nensaifilms">
       <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
       <div class="card-head"><span>PACK 01</span><span><span class="num">●</span> AVAILABLE</span></div>
-      <div class="card-img" data-label="IKEBUKURO · 池袋"></div>
+      <div class="card-img card-img-ikebukuro" data-label="IKEBUKURO · 池袋"></div>
       <h3>池袋駅</h3>
       <span class="en">Ikebukuro Station</span>
-      <p class="desc">東口ロータリー、サンシャイン動線、夜のネオン街——50カット。</p>
-      <div class="card-foot"><span class="price">¥30,000—</span><span class="arr">VIEW PACK →</span></div>
+      <p class="desc" data-i18n="card.1.desc">池袋駅周辺の商業施設、街並み、住宅エリアの実写映像。50カット以上。</p>
+      <div class="card-foot"><span class="price">¥55,000—</span><span class="arr">VIEW PACK →</span></div>
     </a>
-    <a class="card" href="https://payhip.com/nensaifilms">
+    <a class="card" href="https://payhip.com/b/Gx9QY">
       <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
       <div class="card-head"><span>PACK 02</span><span><span class="num">●</span> AVAILABLE</span></div>
-      <div class="card-img" data-label="SHINJUKU · 新宿"></div>
-      <h3>新宿駅</h3>
-      <span class="en">Shinjuku Station</span>
-      <p class="desc">西口・東口・歌舞伎町、世界最多の乗降客が行き交う風景。</p>
-      <div class="card-foot"><span class="price">¥30,000—</span><span class="arr">VIEW PACK →</span></div>
-    </a>
-    <a class="card" href="https://payhip.com/nensaifilms">
-      <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
-      <div class="card-head"><span>PACK 03</span><span><span class="num">●</span> AVAILABLE</span></div>
-      <div class="card-img" data-label="KAMEARI · 亀有"></div>
+      <div class="card-img card-img-kameari" data-label="KAMEARI · 亀有"></div>
       <h3>亀有駅</h3>
       <span class="en">Kameari Station</span>
-      <p class="desc">下町の静けさ、アーケード、生活感のある路地——50カット。</p>
-      <div class="card-foot"><span class="price">¥30,000—</span><span class="arr">VIEW PACK →</span></div>
+      <p class="desc" data-i18n="card.2.desc">亀有駅周辺の商業施設、街並み、住宅エリアの実写映像。50カット以上。</p>
+      <div class="card-foot"><span class="price">¥55,000—</span><span class="arr">VIEW PACK →</span></div>
+    </a>
+    <a class="card" href="https://payhip.com/b/4Zed7">
+      <span class="card-badge"><span class="dot"></span> SHOT ON LOCATION</span>
+      <div class="card-head"><span>PACK 03</span><span><span class="num">●</span> AVAILABLE</span></div>
+      <div class="card-img card-img-chinatown" data-label="YOKOHAMA CHINATOWN · 横浜中華街"></div>
+      <h3>横浜中華街</h3>
+      <span class="en">Yokohama Chinatown</span>
+      <p class="desc" data-i18n="card.3.desc">横浜中華街周辺の商業施設、街並み、住宅エリアの実写映像。50カット以上。</p>
+      <div class="card-foot"><span class="price">¥55,000—</span><span class="arr">VIEW PACK →</span></div>
     </a>
   </div>
 </section>
@@ -1167,9 +1184,10 @@
       'notice.caution.h': '公開前の、ひとつのお願い。',
       'notice.caution.p': '映像には街を歩く方々が写り込んでいる場合があります。一般公開される媒体でご利用される際は、肖像権・プライバシー保護のため、必要に応じてモザイク等の処理をお願いいたします。',
       'foot.tag': '日本で撮影。<em>日本に住む人間が、自分の足で。</em>記録として。',
-      'foot.shop': 'Shop', 'foot.studio': 'Studio', 'foot.contact': 'Contact'
-    },
-    en: {
+      'foot.shop': 'Shop', 'foot.studio': 'Studio', 'foot.contact': 'Contact',
+      'card.1.desc': '池袋駅周辺の商業施設、街並み、住宅エリアの実写映像。50カット以上。',
+      'card.2.desc': '亀有駅周辺の商業施設、街並み、住宅エリアの実写映像。50カット以上。',
+      'card.3.desc': '横浜中華街周辺の商業施設、街並み、住宅エリアの実写映像。50カット以上。' {
       'hero.meta': 'NOW SHOOTING · TOKYO 2026',
       'hero.title': 'Year by year,<br>the city <span class="accent">keeps changing.</span>',
       'hero.sub': 'Real Japan, frame by frame.<br>Footage shot on the ground — <em>not the postcard version.</em>',
@@ -1216,9 +1234,10 @@
       'notice.caution.h': 'One small ask, before you publish.',
       'notice.caution.p': 'Some clips may include passersby on the street. When using this footage in public-facing media, please apply appropriate processing (e.g. blurring of faces) where needed to protect privacy and likeness rights.',
       'foot.tag': 'Filmed in Japan. <em>By people who live here.</em> For the record.',
-      'foot.shop': 'Shop', 'foot.studio': 'Studio', 'foot.contact': 'Contact'
-    },
-    zh: {
+      'foot.shop': 'Shop', 'foot.studio': 'Studio', 'foot.contact': 'Contact',
+      'card.1.desc': 'Real footage of commercial facilities, streets, and residential areas around Ikebukuro Station. 50+ clips.',
+      'card.2.desc': 'Real footage of commercial facilities, streets, and residential areas around Kameari Station. 50+ clips.',
+      'card.3.desc': 'Real footage of commercial facilities, streets, and residential areas around Yokohama Chinatown. 50+ clips.' {
       'hero.meta': '正在拍摄 · 东京 2026',
       'hero.title': '年年岁岁，<br>街景<span class="accent">不断流转。</span>',
       'hero.sub': '真实日本，每一帧。<br>实地拍摄 — <em>不是观光手册上的样子。</em>',
@@ -1265,7 +1284,10 @@
       'notice.caution.h': '公开发表前，请处理一下。',
       'notice.caution.p': '素材中可能包含街上行人的画面。在用于公开发布的媒介时，请根据需要对路人面部等做马赛克处理，以保护其肖像权和隐私权。',
       'foot.tag': '日本拍摄。<em>住在这里的人，亲自记录。</em>留给时间。',
-      'foot.shop': '商店', 'foot.studio': '工作室', 'foot.contact': '联系'
+      'foot.shop': '商店', 'foot.studio': '工作室', 'foot.contact': '联系',
+      'card.1.desc': '池袋站周边商业设施、街景与住宅区域的实拍影像。50+ 个镜头。',
+      'card.2.desc': '龟有站周边商业设施、街景与住宅区域的实拍影像。50+ 个镜头。',
+      'card.3.desc': '横滨中华街周边商业设施、街景与住宅区域的实拍影像。50+ 个镜头。'
     }
   };
   function setLang(lang) {
